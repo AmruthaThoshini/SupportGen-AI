@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SupportGen AI analyzes customer support messages and generates suggested replies using a fine-tuned language model.">
+  <title>SupportGen AI | Customer Support Intelligence</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="#">
+      <span class="logo">S</span>
+      <span>
+        <b>SupportGen</b>
+        <small>AI SUPPORT DESK</small>
+      </span>
+    </a>
+
+    <p class="nav-title">WORKSPACE</p>
+    <button class="nav active" type="button">✳ &nbsp; Support assistant</button>
+    <button class="nav" id="historyNav" type="button">◷ &nbsp; Recent activity</button>
+
+    <div class="side-bottom">
+      <div class="status">
+        <span class="dot"></span>
+        <div>
+          <b>Model integration</b>
+          <small>Colab API · Flask backend</small>
+        </div>
+      </div>
+      <p class="side-caption">SupportGen AI · Local development</p>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div class="crumb">Workspace <span>/</span> <b>Support assistant</b></div>
+      <span class="preview"><i></i> MODEL INTEGRATED</span>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CUSTOMER SUPPORT INTELLIGENCE</p>
+        <h1>Make every support reply<br><em>smarter.</em></h1>
+        <p class="subtitle">
+          Analyze a customer message and prepare a helpful response
+          for your support team using a fine-tuned language model.
+        </p>
+      </div>
+      <div class="hero-icon">✳</div>
+    </section>
+
+    <div class="notice">
+      <span>i</span>
+      <p>
+        <b>Model connected:</b>
+        Customer messages are sent to the SupportGen AI Flask API,
+        which requests predictions from the fine-tuned model running
+        in Google Colab. Suggested replies require human review.
+      </p>
+    </div>
+
+    <div class="grid">
+      <section class="panel">
+        <div class="panel-title">
+          <div class="step">01</div>
+          <div>
+            <h2>Customer message</h2>
+            <p>Enter the message you want to analyze.</p>
+          </div>
+        </div>
+
+        <form id="supportForm">
+          <label for="customerMessage">CUSTOMER MESSAGE <strong>*</strong></label>
+          <textarea
+            id="customerMessage"
+            maxlength="3000"
+            required
+            placeholder="Example: My payment was deducted, but my order still shows as unpaid..."
+          ></textarea>
+
+          <div class="meta">
+            <span id="charCount">0 / 3000</span>
+            <span>Never enter passwords, OTPs or full card details.</span>
+          </div>
+
+          <label for="channel">SUPPORT CHANNEL</label>
+          <select id="channel">
+            <option>Email</option>
+            <option>Live chat</option>
+            <option>Web form</option>
+            <option>Phone summary</option>
+          </select>
+
+          <button class="primary" type="submit">
+            ✳ &nbsp; Analyze message <span>→</span>
+          </button>
+
+          <p class="privacy">
+            ▣ &nbsp; AI-generated suggestions only. No customer action is performed.
+          </p>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title">
+          <div class="step">02</div>
+          <div>
+            <h2>Support insight</h2>
+            <p>Model-generated output for the support agent.</p>
+          </div>
+          <span class="demo-tag">AI PREDICTION</span>
+        </div>
+
+        <div id="emptyState" class="empty">
+          <div class="empty-icon">✳</div>
+          <h3>Your support insight will appear here</h3>
+          <p>
+            Enter a customer message and select
+            <b>Analyze message</b> to generate a prediction.
+          </p>
+          <div class="chips">
+            <span>Category</span>
+            <span>Intent</span>
+            <span>Suggested reply</span>
+          </div>
+        </div>
+
+        <div id="resultContent" class="hidden" aria-live="polite">
+          <label>PREDICTED CATEGORY</label>
+          <div class="category">
+            <span>◈</span>
+            <b id="categoryValue">—</b>
+            <small>MODEL OUTPUT</small>
+          </div>
+
+          <label>PREDICTED INTENT</label>
+          <div id="intentValue" class="intent">—</div>
+
+          <label class="reply-label">
+            SUGGESTED REPLY
+            <span>EDIT BEFORE SENDING</span>
+          </label>
+
+          <textarea
+            id="replyValue"
+            class="reply"
+            rows="6"
+            aria-label="Suggested reply"
+          ></textarea>
+
+          <div class="reply-actions">
+            <span>✎ Editable draft</span>
+            <button id="copyReply" class="secondary" type="button">
+              Copy reply
+            </button>
+          </div>
+
+          <div class="next">
+            <div class="next-icon">↗</div>
+            <div>
+              <label>RECOMMENDED NEXT STEP</label>
+              <p id="nextActionValue"></p>
+            </div>
+          </div>
+
+          <p class="safety">
+            Suggestions only. Verify details in the relevant system
+            before taking action or sending a reply.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <section class="features">
+      <article>
+        <span class="feature-icon purple">⌁</span>
+        <div>
+          <b>Intent-aware support</b>
+          <p>Organize incoming messages by predicted category and intent.</p>
+        </div>
+      </article>
+
+      <article>
+        <span class="feature-icon blue">✎</span>
+        <div>
+          <b>Agent-reviewed replies</b>
+          <p>Keep a human in control before responses are sent.</p>
+        </div>
+      </article>
+
+      <article>
+        <span class="feature-icon green">◈</span>
+        <div>
+          <b>Action-conscious design</b>
+          <p>A recommendation is never treated as a completed action.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <b>SupportGen AI</b>
+      <span>Fine-Tuned Customer Support Intelligence System</span>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
